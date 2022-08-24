@@ -798,8 +798,8 @@ void game_loop( void )
             close_socket( d, TRUE );
             continue;
          }
-         else if( ( !d->character && d->idle > 360 )  /* 2 mins */
-                  || ( d->connected != CON_PLAYING && d->idle > 1200 )  /* 5 mins */
+         else if( ( !d->character && d->idle > 720 )  /* 4 mins */
+                  || ( d->connected != CON_PLAYING && d->idle > 2400 )  /* 10 mins */
                   || d->idle > 28800 ) /* 2 hrs  */
          {
             write_to_descriptor( d, "Idle timeout... disconnecting.\r\n", 0 );
@@ -839,7 +839,15 @@ void game_loop( void )
                continue;
             }
 
-            read_from_buffer( d );
+            if( d->connected != CON_GET_WANT_RIPANSI)
+               read_from_buffer( d );
+            else
+            {
+               /* Force ANSI */
+               d->incomm[0] = 'A';
+               d->incomm[1] = '\0';
+	    }
+
             if( d->incomm[0] != '\0' )
             {
                d->fcommand = TRUE;
@@ -1031,6 +1039,7 @@ void new_descriptor( int new_desc )
    dnew->lines = 0;
    dnew->scrlen = 24;
    dnew->port = ntohs( sock.sin_port );
+   dnew->firstlogin = 1;
    dnew->newstate = 0;
    dnew->prevcolor = 0x07;
    dnew->ifd = -1;   /* Descriptor pipes, used for DNS resolution and such */
@@ -1838,6 +1847,8 @@ void nanny_get_name( DESCRIPTOR_DATA * d, char *argument )
    CHAR_DATA *ch;
    bool fOld;
    short chk;
+   size_t i;
+   size_t index = 0;
 
    ch = d->character;
 
@@ -1847,6 +1858,24 @@ void nanny_get_name( DESCRIPTOR_DATA * d, char *argument )
       return;
    }
 
+   if( d->firstlogin )
+   {
+      d->firstlogin = 0;
+      for( i = 0; i < strlen( argument ); i++)
+      {
+         if( argument[i] == 'V' )
+         {
+            index = i;
+            break;
+         }
+      }
+      /* Remove the 'V' in front of string */
+      for( i = 0; i <= strlen( argument ); i++ )
+      {
+         if ( i > index )
+            argument[i - index - 1] = argument[i];
+      }
+   }
    argument[0] = UPPER( argument[0] );
 
    if( !str_cmp( argument, "MSSP-REQUEST" ) )
@@ -2316,6 +2345,45 @@ void nanny_get_new_class( DESCRIPTOR_DATA * d, const char *argument )
    d->connected = CON_GET_NEW_RACE;
 }
 
+void nanny_get_want_ripansi( DESCRIPTOR_DATA * d, const char *argument )
+{
+   CHAR_DATA *ch;
+   char log_buf[MAX_STRING_LENGTH];
+
+   ch = d->character;
+
+   switch ( argument[0] )
+   {
+      case 'r':
+      case 'R':
+         xSET_BIT( ch->act, PLR_RIP );
+         xSET_BIT( ch->act, PLR_ANSI );
+         break;
+      case 'a':
+      case 'A':
+         xSET_BIT( ch->act, PLR_ANSI );
+         break;
+      case 'n':
+      case 'N':
+         break;
+      default:
+         write_to_buffer( d, "Invalid selection.\r\nRIP, ANSI or NONE? ", 0 );
+         return;
+   }
+   snprintf( log_buf, MAX_STRING_LENGTH, "%s@%s new %s %s.", ch->name, d->host,
+             race_table[ch->race]->race_name, class_table[ch->Class]->who_name );
+   log_string_plus( log_buf, LOG_COMM, sysdata.log_level );
+   to_channel( log_buf, CHANNEL_MONITOR, "Monitor", LEVEL_IMMORTAL );
+#if 0
+   write_to_buffer( d, "Press [ENTER] ", 0 );
+   show_title( d );
+#endif
+   ch->level = 0;
+   ch->position = POS_STANDING;
+   d->connected = CON_PRESS_ENTER;
+   set_pager_color( AT_PLAIN, ch );
+}
+
 void nanny_get_new_race( DESCRIPTOR_DATA * d, const char *argument )
 {
    CHAR_DATA *ch;
@@ -2366,45 +2434,12 @@ void nanny_get_new_race( DESCRIPTOR_DATA * d, const char *argument )
       return;
    }
 
+#if 0
    write_to_buffer( d, "\r\nWould you like RIP, ANSI or no graphic/color support, (R/A/N)? ", 0 );
+#else
+   write_to_buffer( d, "\r\nPress [ENTER] ", 0 );
    d->connected = CON_GET_WANT_RIPANSI;
-}
-
-void nanny_get_want_ripansi( DESCRIPTOR_DATA * d, const char *argument )
-{
-   CHAR_DATA *ch;
-   char log_buf[MAX_STRING_LENGTH];
-
-   ch = d->character;
-
-   switch ( argument[0] )
-   {
-      case 'r':
-      case 'R':
-         xSET_BIT( ch->act, PLR_RIP );
-         xSET_BIT( ch->act, PLR_ANSI );
-         break;
-      case 'a':
-      case 'A':
-         xSET_BIT( ch->act, PLR_ANSI );
-         break;
-      case 'n':
-      case 'N':
-         break;
-      default:
-         write_to_buffer( d, "Invalid selection.\r\nRIP, ANSI or NONE? ", 0 );
-         return;
-   }
-   snprintf( log_buf, MAX_STRING_LENGTH, "%s@%s new %s %s.", ch->name, d->host,
-             race_table[ch->race]->race_name, class_table[ch->Class]->who_name );
-   log_string_plus( log_buf, LOG_COMM, sysdata.log_level );
-   to_channel( log_buf, CHANNEL_MONITOR, "Monitor", LEVEL_IMMORTAL );
-   write_to_buffer( d, "Press [ENTER] ", 0 );
-   show_title( d );
-   ch->level = 0;
-   ch->position = POS_STANDING;
-   d->connected = CON_PRESS_ENTER;
-   set_pager_color( AT_PLAIN, ch );
+#endif
 }
 
 void nanny_press_enter( DESCRIPTOR_DATA * d, const char *argument )
@@ -2711,7 +2746,7 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
          break;
 
       case CON_GET_WANT_RIPANSI:
-         nanny_get_want_ripansi( d, argument );
+         nanny_get_want_ripansi( d, "Ansi" );
          break;
 
       case CON_PRESS_ENTER:
@@ -3885,8 +3920,8 @@ void display_prompt( DESCRIPTOR_DATA * d )
                             : ( xIS_SET( ch->act, PLR_WIZINVIS ) ? ch->pcdata->wizinvis : 0 ) );
                   break;
             }
-            if( pstat != 0x7FFFFFFF )
-               snprintf( pbuf, MAX_STRING_LENGTH - strlen (buf), "%d", pstat );
+            if( pstat != 0x80000000 )
+               snprintf( pbuf, MAX_STRING_LENGTH - strlen (buf), "%u", pstat );
             pbuf += strlen( pbuf );
             break;
       }

@@ -4093,7 +4093,6 @@ void extract_exit( ROOM_INDEX_DATA * room, EXIT_DATA * pexit )
    STRFREE( pexit->keyword );
    STRFREE( pexit->description );
    DISPOSE( pexit );
-   top_exit--;
 }
 
 void clean_room( ROOM_INDEX_DATA * room )
@@ -4126,6 +4125,7 @@ void clean_room( ROOM_INDEX_DATA * room )
    {
       pexit_next = pexit->next;
       extract_exit( room, pexit );
+      top_exit--;
    }
    room->first_exit = NULL;
    room->last_exit = NULL;

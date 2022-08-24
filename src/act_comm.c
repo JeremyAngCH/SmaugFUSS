@@ -2459,11 +2459,12 @@ void send_rip_screen( CHAR_DATA * ch )
    FILE *rpfile;
    int num = 0;
    char BUFF[MAX_STRING_LENGTH * 2];
+   int c;
 
    if( ( rpfile = fopen( RIPSCREEN_FILE, "r" ) ) != NULL )
    {
-      while( ( BUFF[num] = fgetc( rpfile ) ) != EOF )
-         num++;
+      while( ( c = fgetc( rpfile ) ) != EOF )
+         BUFF[num++] = c;
       FCLOSE( rpfile );
       BUFF[num] = 0;
       write_to_buffer( ch->desc, BUFF, num );
@@ -2475,11 +2476,12 @@ void send_rip_title( CHAR_DATA * ch )
    FILE *rpfile;
    int num = 0;
    char BUFF[MAX_STRING_LENGTH * 2];
+   int c;
 
    if( ( rpfile = fopen( RIPTITLE_FILE, "r" ) ) != NULL )
    {
-      while( ( BUFF[num] = fgetc( rpfile ) ) != EOF )
-         num++;
+      while( ( c = fgetc( rpfile ) ) != EOF )
+         BUFF[num++] = c;
       FCLOSE( rpfile );
       BUFF[num] = 0;
       write_to_buffer( ch->desc, BUFF, num );
@@ -2491,11 +2493,12 @@ void send_ansi_title( CHAR_DATA * ch )
    FILE *rpfile;
    int num = 0;
    char BUFF[MAX_STRING_LENGTH * 2];
+   int c;
 
    if( ( rpfile = fopen( ANSITITLE_FILE, "r" ) ) != NULL )
    {
-      while( ( BUFF[num] = fgetc( rpfile ) ) != EOF )
-         num++;
+      while( ( c = fgetc( rpfile ) ) != EOF )
+         BUFF[num++] = c;
       FCLOSE( rpfile );
       BUFF[num] = 0;
       write_to_buffer( ch->desc, BUFF, num );
@@ -2507,11 +2510,12 @@ void send_ascii_title( CHAR_DATA * ch )
    FILE *rpfile;
    int num = 0;
    char BUFF[MAX_STRING_LENGTH];
+   int c;
 
    if( ( rpfile = fopen( ASCTITLE_FILE, "r" ) ) != NULL )
    {
-      while( ( BUFF[num] = fgetc( rpfile ) ) != EOF )
-         num++;
+      while( ( c = fgetc( rpfile ) ) != EOF )
+         BUFF[num++] = c;
       FCLOSE( rpfile );
       BUFF[num] = 0;
       write_to_buffer( ch->desc, BUFF, num );

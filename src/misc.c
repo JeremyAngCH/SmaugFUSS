@@ -23,7 +23,9 @@
 #include <string.h>
 #include "mud.h"
 
-void do_eat( CHAR_DATA* ch, const char* argument )
+extern int top_exit;
+
+void do_eat( CHAR_DATA* ch, const char* argument)
 {
    char buf[MAX_STRING_LENGTH];
    OBJ_DATA *obj;
@@ -753,6 +755,7 @@ void pullorpush( CHAR_DATA * ch, OBJ_DATA * obj, bool pull )
          pexit->description = STRALLOC( "" );
          pexit->key = -1;
          pexit->exit_info = 0;
+         top_exit++;
          act( AT_PLAIN, "A passage opens!", ch, NULL, NULL, TO_CHAR );
          act( AT_PLAIN, "A passage opens!", ch, NULL, NULL, TO_ROOM );
          return;
@@ -1503,7 +1506,7 @@ char *print_bitvector( EXT_BV * bits )
          break;
    for( x = 0; x <= cnt; x++ )
    {
-      snprintf( p, ( XBI * 12 ) - ( p - buf ), "%d", bits->bits[x] );
+      snprintf( p, ( XBI * 12 ) - ( p - buf ), "%ud", bits->bits[x] );
       p += strlen( p );
       if( x < cnt )
          *p++ = '&';

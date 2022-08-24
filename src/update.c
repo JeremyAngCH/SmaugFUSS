@@ -57,6 +57,8 @@ const char *corpse_descs[] = {
    "The corpse of %s lies here."
 };
 
+extern int top_exit;
+
 /*
  * Advancement stuff.
  */

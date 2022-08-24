@@ -807,6 +807,7 @@ struct descriptor_data
    const char *pagepoint;
    char pagecmd;
    char pagecolor;
+   int firstlogin;
    int newstate;
    unsigned char prevcolor;
    int ifd;

@@ -3428,19 +3428,20 @@ const char *fread_flagstring( FILE * fp )
          *plast = '\0';
          return flagstring;
       }
-      switch ( *plast = getc( fp ) )
+      if( feof( fp ) )
+      {
+         bug( "%s: EOF", __func__ );
+         if( fBootDb )
+            exit( 1 );
+         *plast = '\0';
+         return flagstring;
+      }
+      *plast = getc( fp );
+      switch ( *plast )
       {
          default:
             plast++;
             ln++;
-            break;
-
-         case EOF:
-            bug( "%s: EOF", __func__ );
-            if( fBootDb )
-               exit( 1 );
-            *plast = '\0';
-            return flagstring;
             break;
 
          case '\n':
@@ -3502,19 +3503,20 @@ const char *fread_string( FILE * fp )
          *plast = '\0';
          return STRALLOC( buf );
       }
-      switch ( *plast = getc( fp ) )
+      if( feof( fp ) )
+      {
+         bug( "%s: EOF", __func__ );
+         if( fBootDb )
+            exit( 1 );
+         *plast = '\0';
+         return STRALLOC( buf );
+      }
+      *plast = getc( fp );
+      switch ( *plast )
       {
          default:
             plast++;
             ln++;
-            break;
-
-         case EOF:
-            bug( "%s: EOF", __func__ );
-            if( fBootDb )
-               exit( 1 );
-            *plast = '\0';
-            return STRALLOC( buf );
             break;
 
          case '\n':
@@ -3576,19 +3578,20 @@ char *fread_string_nohash( FILE * fp )
          *plast = '\0';
          return str_dup( buf );
       }
-      switch ( *plast = getc( fp ) )
+      if( feof( fp ) )
+      {
+         bug( "%s: EOF", __func__ );
+         if( fBootDb )
+            exit( 1 );
+         *plast = '\0';
+         return str_dup( buf );
+      }
+      *plast = getc( fp );
+      switch ( *plast )
       {
          default:
             plast++;
             ln++;
-            break;
-
-         case EOF:
-            bug( "%s: EOF", __func__ );
-            if( fBootDb )
-               exit( 1 );
-            *plast = '\0';
-            return str_dup( buf );
             break;
 
          case '\n':
