@@ -1598,7 +1598,7 @@ void do_homebuy( CHAR_DATA * ch, const char *argument )
       {
          if( xIS_SET( location->room_flags, ROOM_HOUSE ) )
          {
-            send_to_char( "That room is already a residence.  Use \"sellhouse\" or first remove that player's house.\r\n", ch );
+            send_to_char( "That room is already a residence.  Use \"homsell\" or first remove that player's house.\r\n", ch );
             return;
          }
       }
@@ -1824,10 +1824,10 @@ void do_sellhouse( CHAR_DATA * ch, const char *argument )
 
    if( !argument || argument[0] == '\0' )
    {
-      send_to_char( "Options for Sellhouse Command:\r\n", ch );
-      send_to_char( "  Sellhouse yes\r\n", ch );
+      send_to_char( "Options for Homesell Command:\r\n", ch );
+      send_to_char( "  Homesell yes\r\n", ch );
       send_to_char( "    Places your residence on auction with default starting bid.\r\n", ch );
-      send_to_char( "  Sellhouse <amount>\r\n", ch );
+      send_to_char( "  Homesell <amount>\r\n", ch );
       send_to_char( "   Places your residence on auction with the given amount as starting bid.\r\n", ch );
       return;
    }
