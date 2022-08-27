@@ -4363,15 +4363,19 @@ void do_recall( CHAR_DATA* ch, const char* argument)
       if( number_bits( 1 ) == 0 || ( !IS_NPC( opponent ) && number_bits( 3 ) > 1 ) )
       {
          WAIT_STATE( ch, 4 );
+#if 0
          lose = ( int )( ( exp_level( ch, ch->level + 1 ) - exp_level( ch, ch->level ) ) * 0.1 );
          if( ch->desc )
             lose /= 2;
          gain_exp( ch, 0 - lose );
          ch_printf( ch, "You failed!  You lose %d exps.\r\n", lose );
+#else
+         ch_printf( ch, "You failed!\r\n" );
+#endif
          return;
       }
 
-      lose = ( int )( ( exp_level( ch, ch->level + 1 ) - exp_level( ch, ch->level ) ) * 0.2 );
+      lose = ( int )( ( exp_level( ch, ch->level + 1 ) - exp_level( ch, ch->level ) ) * 0.05 );
       if( ch->desc )
          lose /= 2;
       gain_exp( ch, 0 - lose );

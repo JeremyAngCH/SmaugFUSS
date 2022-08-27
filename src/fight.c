@@ -4128,8 +4128,8 @@ void do_flee( CHAR_DATA* ch, const char* argument)
 {
    ROOM_INDEX_DATA *was_in;
    ROOM_INDEX_DATA *now_in;
-   char buf[MAX_STRING_LENGTH];
-   int attempt, los;
+   /* char buf[MAX_STRING_LENGTH]; */
+   int attempt /*, los */;
    short door;
    EXIT_DATA *pexit;
 
@@ -4207,6 +4207,7 @@ void do_flee( CHAR_DATA* ch, const char* argument)
          CHAR_DATA *wf = who_fighting( ch );
 
          act( AT_FLEE, "You flee head over heels from combat!", ch, NULL, NULL, TO_CHAR );
+#if 0
          los = ( int )( ( exp_level( ch, ch->level + 1 ) - exp_level( ch, ch->level ) ) * 0.2 );
          if( ch->level < LEVEL_AVATAR )
          {
@@ -4220,7 +4221,7 @@ void do_flee( CHAR_DATA* ch, const char* argument)
                }
             }
          }
-
+#endif
          if( wf && ch->pcdata->deity )
          {
             int level_ratio = URANGE( 1, wf->level / ch->level, MAX_LEVEL );
@@ -4237,8 +4238,12 @@ void do_flee( CHAR_DATA* ch, const char* argument)
       return;
    }
 
+#if 0
    los = ( int )( ( exp_level( ch, ch->level + 1 ) - exp_level( ch, ch->level ) ) * 0.1 );
+#endif
+
    act( AT_FLEE, "You attempt to flee from combat but can't escape!", ch, NULL, NULL, TO_CHAR );
+#if 0
    if( ch->level < LEVEL_AVATAR && number_bits( 3 ) == 1 )
    {
       if( !IS_PKILL( ch ) )
@@ -4251,6 +4256,7 @@ void do_flee( CHAR_DATA* ch, const char* argument)
          }
       }
    }
+#endif
    return;
 }
 

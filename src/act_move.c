@@ -978,11 +978,14 @@ ch_ret move_char( CHAR_DATA * ch, EXIT_DATA * pexit, int fall )
          }
       }
 
-      WAIT_STATE( ch, move );
+      WAIT_STATE( ch, 1 );
+/* no movement cost */
+#if 0
       if( ch->mount )
          ch->mount->move -= move;
       else
          ch->move -= move;
+#endif
    }
 
    /*
