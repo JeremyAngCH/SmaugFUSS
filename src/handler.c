@@ -652,7 +652,7 @@ int exp_level( CHAR_DATA * ch, short level )
    int lvl;
 
    lvl = UMAX( 0, level - 1 );
-   return ( lvl * lvl * lvl * get_exp_base( ch ) );
+   return ( lvl * lvl * get_exp_base( ch ) );
 }
 
 /*
