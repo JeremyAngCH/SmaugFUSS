@@ -3084,7 +3084,7 @@ End
 Name        stat~
 Code        do_stat
 Position    100
-Level       50
+Level       2
 Log         0
 End
 
@@ -3092,7 +3092,7 @@ End
 Name        statreport~
 Code        do_statreport
 Position    100
-Level       50
+Level       2
 Log         0
 End
 
