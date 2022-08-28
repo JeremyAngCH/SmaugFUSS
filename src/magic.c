@@ -4553,14 +4553,21 @@ ch_ret spell_portal( int sn, int level, CHAR_DATA * ch, void *vo )
    char buf[MAX_STRING_LENGTH];
    SKILLTYPE *skill = get_skilltype( sn );
 
+   if( ( victim = get_char_world( ch, target_name ) ) == NULL
+       || victim == ch
+       || !victim->in_room )
+   {
+      failed_casting( skill, ch, victim, NULL );
+      return rSPELL_FAILED;
+   }
+
    /*
     * No go if all kinds of things aren't just right, including the caster
     * and victim are not both pkill or both peaceful. -- Narn
+    * No restrictions for immmortals. -- Vamp
     */
-   if( ( victim = get_char_world( ch, target_name ) ) == NULL
-       || victim == ch
-       || !victim->in_room
-       || xIS_SET( victim->in_room->room_flags, ROOM_PRIVATE )
+   if( !IS_IMMORTAL( ch ) &&
+       ( xIS_SET( victim->in_room->room_flags, ROOM_PRIVATE )
        || xIS_SET( victim->in_room->room_flags, ROOM_SOLITARY )
        || xIS_SET( victim->in_room->room_flags, ROOM_NO_ASTRAL )
        || xIS_SET( victim->in_room->room_flags, ROOM_DEATH )
@@ -4575,7 +4582,7 @@ ch_ret spell_portal( int sn, int level, CHAR_DATA * ch, void *vo )
        || victim->level >= level + 15
        || ( IS_NPC( victim ) && xIS_SET( victim->act, ACT_PROTOTYPE ) )
        || ( IS_NPC( victim ) && saves_spell_staff( level, victim ) )
-       || ( !IS_NPC( victim ) && CAN_PKILL( ch ) != CAN_PKILL( victim ) ) )
+       || ( !IS_NPC( victim ) && CAN_PKILL( ch ) != CAN_PKILL( victim ) ) ) )
    {
       failed_casting( skill, ch, victim, NULL );
       return rSPELL_FAILED;
