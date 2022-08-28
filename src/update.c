@@ -1083,7 +1083,8 @@ void char_update( void )
          gain_condition( ch, COND_DRUNK, -1 );
          gain_condition( ch, COND_FULL, -1 + race_table[ch->race]->hunger_mod );
 
-         if( ch->Class == CLASS_VAMPIRE && ch->level >= 10 )
+         if( ch->Class == CLASS_VAMPIRE && ch->level >= 10 &&
+             ch->pcdata->condition[COND_BLOODTHIRST] > 10 )
          {
             if( time_info.hour < 21 && time_info.hour > 5 )
                gain_condition( ch, COND_BLOODTHIRST, -1 );

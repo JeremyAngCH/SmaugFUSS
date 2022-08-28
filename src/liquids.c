@@ -1299,6 +1299,7 @@ void do_drink( CHAR_DATA* ch, const char* argument)
       case ITEM_BLOOD:
          if( IS_VAMPIRE( ch ) && !IS_NPC( ch ) )
          {
+#if 0
             if( obj->timer > 0   /* if timer, must be spilled blood */
                 && ch->level > 5 && ch->pcdata->condition[COND_BLOODTHIRST] > ( 5 + ch->level / 10 ) )
             {
@@ -1306,7 +1307,7 @@ void do_drink( CHAR_DATA* ch, const char* argument)
                send_to_char( "Unless in dire need, you'd much rather have blood from a victim's neck!\r\n", ch );
                return;
             }
-
+#endif
             if( ch->pcdata->condition[COND_BLOODTHIRST] < ( 10 + ch->level ) )
             {
                if( ch->pcdata->condition[COND_FULL] >= MAX_COND_VALUE
