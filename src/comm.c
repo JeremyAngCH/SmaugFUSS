@@ -2598,6 +2598,7 @@ void nanny_read_motd( DESCRIPTOR_DATA * d, const char *argument )
        */
       xSET_BIT( ch->act, PLR_AUTOGOLD );
       xSET_BIT( ch->act, PLR_AUTOEXIT );
+      xSET_BIT( ch->act, PLR_AUTOMAP );
 
       /*
        * Added by Brittany, Nov 24/96.  The object is the adventurer's guide
