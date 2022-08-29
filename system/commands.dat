@@ -3005,10 +3005,10 @@ Log         0
 End
 
 #COMMAND
-Name        sayto~
-Code        do_say_to
+Name        say~
+Code        do_say
 Position    106
-Level       1
+Level       0
 Log         0
 Flags       4
 End
@@ -3030,10 +3030,10 @@ Log         0
 End
 
 #COMMAND
-Name        say~
-Code        do_say
+Name        sayto~
+Code        do_say_to
 Position    106
-Level       0
+Level       1
 Log         0
 Flags       4
 End
