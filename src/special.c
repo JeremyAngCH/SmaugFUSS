@@ -910,6 +910,26 @@ bool spec_thief( CHAR_DATA * ch )
       }
       else
       {
+         /****
+          * Generate noise to alert player if the player is awake and
+	  * his/her gold is being stolen.
+          ****/
+         if( IS_AWAKE( victim ) )
+         {
+            int gold_act = number_range(0, 2);
+            if( gold_act == 0 )
+            {
+               act( AT_ACTION, "Bumped!...", ch, NULL, victim, TO_VICT );
+            }
+            else if( gold_act == 1 )
+            {
+               act( AT_ACTION, "Clinking...", ch, NULL, victim, TO_VICT );
+            }
+            else
+            {
+               act( AT_ACTION, "Plinking...", ch, NULL, victim, TO_VICT );
+            }
+         }
          maxgold = ch->level * ch->level * 1000;
          gold = victim->gold * number_range( 1, URANGE( 2, ch->level / 4, 10 ) ) / 100;
          ch->gold += 9 * gold / 10;
