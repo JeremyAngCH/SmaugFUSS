@@ -5877,9 +5877,10 @@ Sector   inside~
 Flags    nomob indoors nosummon~
 Desc     Here a weary traveller can seek a good rest in comfort without fear of
 theft or, worse yet, murder.  A long counter stretches across much of
-the room, and for a few coins the innkeeper will gladly rent you one
-of his rooms.  Drunken laughter emerges from a hall to the west.  To
-the south beyond a door barred by the innkeeper are the rooms.
+the room, and for right amount of coins the innkeeper will gladly rent
+you one of his rooms.  Drunken laughter emerges from a hall to the
+west.  To the south beyond a door barred by the innkeeper are the
+rooms.
 ~
 #EXIT
 Direction north~
