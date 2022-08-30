@@ -1307,7 +1307,7 @@ bool read_from_descriptor( DESCRIPTOR_DATA * d )
    if( iStart >= sizeof( d->inbuf ) - 10 )
    {
       log_printf( "%s input overflow!", d->host );
-      write_to_descriptor( d, "\r\n*** PUT A LID ON IT!!! ***\r\nYou cannot enter the same command more than 20 consecutive times!\r\n", 0 );
+      write_to_descriptor( d, "\r\n*** PUT A LID ON IT!!! ***\r\nYou cannot enter the same command more than 100 consecutive times!\r\n", 0 );
       return FALSE;
    }
 
@@ -1432,11 +1432,11 @@ void read_from_buffer( DESCRIPTOR_DATA * d )
       }
       else
       {
-         if( ++d->repeat >= 20 )
+         if( ++d->repeat >= 100 )
          {
 /*		log_printf( "%s input spamming!", d->host );
 */
-            write_to_descriptor( d, "\r\n*** PUT A LID ON IT!!! ***\r\nYou cannot enter the same command more than 20 consecutive times!\r\n", 0 );
+            write_to_descriptor( d, "\r\n*** PUT A LID ON IT!!! ***\r\nYou cannot enter the same command more than 100 consecutive times!\r\n", 0 );
             mudstrlcpy( d->incomm, "quit", MAX_INPUT_LENGTH );
          }
       }
