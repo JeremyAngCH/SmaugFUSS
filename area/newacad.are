@@ -5193,7 +5193,7 @@ Stats    1 0 0 0 0
 #ROOM
 Vnum     10300
 Name     Darkhaven Academy~
-Sector   forest~
+Sector   inside~
 Flags    indoors safe nosummon~
 Desc     You stand inside the Darkhaven Academy, an establishment designed to teach
 the basics of play inside this game.  Each room has a specific purpose and
