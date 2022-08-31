@@ -9046,6 +9046,33 @@ For.-+== =================[]===HORIZON=ST==== ==+-X-   10 Scrolls
 NOTES: Archive second floor, all south.  Oracle second floor, all south, east.
 ~
 
+0 MAP1~
+World Map:
+ ==|=|=|==  ==================================
+ | Manor |  | |       NewDarkhaven City    | | =|=|=|=|=
+ =========  | |============================| | |Dwarven|
+* Pixie* *  | |                            | | |Village|
+* Forrest<- | |          DarkHaven         | | =========
+*   *  *  | | |           Square           | |    @Daycare
+ ** *  *  | ====           =====    Astral====   / (Down) *
+**Hoan Do<--               | @<-(up)Plane     -----> Holy *
+  Forrest   ====           =====          ==== \   Groove**
+*  * * *  * | |                            | | /     * ***
+ *** *   *  | |     ========= ========     | | \|=========|
+            | |     |Art    | |Dragon|     | |  |Shattered|
+            | |     |Gallery| |Export|     | |  |Refuge   |
+            | |     ========= ========     | |  |=========|
+            | |            |   |           | |
+            | |============|   |=============|
+            |              |   |             |
+      Chain ->@============| @<--Sewer Ent===|
+      Of    |=========|  *     | (Down)
+      Naris |Graveyard| **   *  *   *
+      (UP)  |=========|  *Midennir * *
+            |=Chapel==|  *Forrest ** *
+            |=========| *  **  *   **
+~
+
 51 MAPOUT~
 Syntax: mapout <write/stat/clear/show/create>
 
