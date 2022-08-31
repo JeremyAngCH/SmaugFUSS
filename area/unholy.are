@@ -754,6 +754,38 @@ Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
+Vnum     2130
+Keywords painting glowing~
+Type     furniture~
+Short    a glowing painting~
+Long     A glowing painting hangs at the far corner of the wall.~
+Flags    glow~
+Values   0 0 0 0 0 0
+Stats    50 0 0 0 0
+#EXDESC
+ExDescKey    painting glowing~
+ExDesc       Gazing at the painting, you find yourself entranced by the image
+of a woman waving at her floating child, who was guided by an angel. Suddenly,
+everything about you shifts and you find yourself becoming part of the painting,
+as warm light covers you as the angel drags back to the grounds of the living.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  exa_prog~
+Arglist   100~
+Comlist   mpechoat $n You feel your body as it dissolves into elements of color,
+mpechoat $n spinning slowly into the oils of the glowing painting...
+mpechoaround $n Stepping forward to examine the painting, $n's body begins to
+mpechoaround $n liquesce, dissolving into a kaleidoscope of colors, spinning
+mpechoaround $n funnel-like into the oiled textures of the glowing image.
+mptransfer $n 21192
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
 Vnum     2150
 Keywords border object~
 Type     trash~
@@ -3038,7 +3070,7 @@ Reset M 0 2102 12 2154
 Vnum     2155
 Name     The Chapel Foyer~
 Sector   inside~
-Flags    dark~
+Flags    dark donation~
 Desc     Once inside the chapel, your ears fill with the sounds of sorrowful wailing
 that echoes in from the east.  Along the northern wall, stands a small dust-
 covered table with a single book opened to show the names of the mourners
@@ -3063,6 +3095,7 @@ Flags     isdoor closed nopassdoor~
 #ENDEXIT
 
 Reset D 0 2155 2 1
+Reset O 0 2130 1 2155
 #ENDROOM
 
 #ROOM
@@ -3079,7 +3112,7 @@ the wall behind the podium is a large black crucifix casting distorted
 shadows, bringing forth an eerie feeling from the depths of your stomach.
 In the far corner of the room, beneath a trapdoor, you see a single
 ladder leading to the belfry which houses a bell that will soon sound
-throughout the cemetary, marking death's triumphant vicotry over life
+throughout the cemetary, marking death's triumphant victory over life
 just recently ended.
 ~
 #EXIT

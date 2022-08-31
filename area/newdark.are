@@ -2840,7 +2840,7 @@ unto the unholy grounds of the dead.
 #MUDPROG
 Progtype  exa_prog~
 Arglist   100~
-Comlist   mpechoat $n Your feel your body as it dissolves into elements of color,
+Comlist   mpechoat $n You feel your body as it dissolves into elements of color,
 mpechoat $n spinning slowly into the oils of the dark painting...
 mpechoaround $n Stepping forward to examine the painting, $n's body begins to
 mpechoaround $n liquesce, dissolving into a kaleidoscope of colors, spinning
