@@ -54,7 +54,7 @@ say astral plane.
 , firmly grips a pearl wand and points it at you...
 else
 say Though it be foolish, if you wish to enter the
-say astral plane, you have but to say so...
+say astral plane, say 'I wish to enter'
 endif
 endif
 ~
@@ -62,28 +62,7 @@ endif
 
 #MUDPROG
 Progtype  speech_prog~
-Arglist   p i wish to enter the astral plane~
-Comlist   if level($n) < 10
-, gives you an irritated glare but makes no action.
-else
-if level($n) > 35
-say You shall not enter while I exist...
-else
-say So be it!
-mpecho A rolling thunder booms as the gate to the astral plane opens!
-un n
-op n
-mpforce $n north
-close n
-lock n
-endif
-endif
-~
-#ENDPROG
-
-#MUDPROG
-Progtype  speech_prog~
-Arglist   p i wish to enter the astral plane.~
+Arglist   p I wish to enter~
 Comlist   if level($n) < 10
 , gives you an irritated glare but makes no action.
 else
@@ -671,38 +650,15 @@ say horrible leader, she will return...
 Progtype  rand_prog~
 Arglist   3~
 Comlist   , weeps softly.
-~
-#ENDPROG
-
-#MUDPROG
-Progtype  rand_prog~
-Arglist   2~
-Comlist   say If you wish to leave this lair of despair, you have but to say
-say so.  Only my brethren and I are truly chained here...
+say If you wish to leave this lair of despair...
+say Just say 'I wish to leave'
+say Only my brethren and I are truly chained here...
 ~
 #ENDPROG
 
 #MUDPROG
 Progtype  speech_prog~
-Arglist   p I wish to leave this lair of despair~
-Comlist   nod
-say Goodbye, $n...
-mpechoaround $n White light flows from Gith's outstretched fingers and
-mpechoaround $n swirls about $n.
-mpechoat $n White light flows from Gith's outstretched fingers and
-mpechoat $n swirls about you.
-mptransfer $n 21000
-if ispkill($n)
-  mptrans 0.$n 3009
-else
-  mptrans 0.$n 21000
-endif
-~
-#ENDPROG
-
-#MUDPROG
-Progtype  speech_prog~
-Arglist   p I wish to leave this lair of despair.~
+Arglist   p I wish to leave~
 Comlist   nod
 say Goodbye, $n...
 mpechoaround $n White light flows from Gith's outstretched fingers and
