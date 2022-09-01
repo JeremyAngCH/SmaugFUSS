@@ -2351,7 +2351,8 @@ an option, CONFIG turns that option on or off.  The options are:
   RIP       You don't receive RIP graphics
   DRAG      Toggle whether others can drag you if you are incapacitated
   NOSUMMON  Toggle whether you will allow player characters to summon you
-  GROUPWHO   Toggles an announcement that you seek to group.
+  GROUPWHO  Toggles an announcement that you seek to group.
+  VNUM      Toggle vnum display at prompt (Immortal)
 For more information on the configuration menu, read section 5 in your
 Adventurer's Guide book.
  
