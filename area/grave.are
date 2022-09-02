@@ -508,6 +508,15 @@ Desc      The gravel road continues northwards.
 #ENDEXIT
 
 #EXIT
+Direction south~
+ToRoom    3405
+Desc      The chapel's front door.
+~
+Keywords  door~
+Flags     isdoor closed~
+#ENDEXIT
+
+#EXIT
 Direction east~
 ToRoom    3638
 Desc      The gravel path leads eastwards between the dark evergreen trees.

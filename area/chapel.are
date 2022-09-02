@@ -1006,7 +1006,7 @@ ToRoom    3604
 Desc      The chapel door is made of dark wood.
 ~
 Keywords  door~
-Flags     isdoor closed locked~
+Flags     isdoor closed~
 #ENDEXIT
 
 #EXIT
@@ -1112,11 +1112,10 @@ ToRoom    3411
 #ENDEXIT
 
 #EXIT
-Direction west~
+Direction east~
 ToRoom    3415
 #ENDEXIT
 
-Reset R 0 3410 4
 Reset M 0 3400 8 3410
   Reset E 1 3421 15 16
 #ENDROOM
@@ -1129,11 +1128,10 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction east~
+Direction north~
 ToRoom    3410
 #ENDEXIT
 
-Reset R 0 3411 4
 Reset M 0 3403 1 3411
   Reset E 1 3425 3 17
 Reset M 0 3416 4 3411
@@ -1265,7 +1263,6 @@ Direction west~
 ToRoom    3410
 #ENDEXIT
 
-Reset R 0 3415 4
 #ENDROOM
 
 #ROOM
@@ -1411,7 +1408,6 @@ Direction west~
 ToRoom    3415
 #ENDEXIT
 
-Reset R 0 3420 4
 #ENDROOM
 
 #ROOM
@@ -1592,16 +1588,15 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction east~
+Direction west~
 ToRoom    3420
 #ENDEXIT
 
 #EXIT
-Direction west~
+Direction east~
 ToRoom    3426
 #ENDEXIT
 
-Reset R 0 3425 4
 #ENDROOM
 
 #ROOM
@@ -1617,11 +1612,10 @@ ToRoom    3430
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction west~
 ToRoom    3425
 #ENDEXIT
 
-Reset R 0 3426 4
 Reset M 0 3409 4 3426
 Reset M 0 3409 4 3426
 Reset M 0 3416 4 3426
@@ -1725,11 +1719,10 @@ ToRoom    3435
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction west~
 ToRoom    3426
 #ENDEXIT
 
-Reset R 0 3430 4
 Reset M 0 3400 8 3430
   Reset E 1 3421 15 16
 #ENDROOM
@@ -1742,16 +1735,15 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction east~
+Direction south~
 ToRoom    3430
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction east~
 ToRoom    3436
 #ENDEXIT
 
-Reset R 0 3431 4
 #ENDROOM
 
 #ROOM
@@ -1823,21 +1815,20 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction north~
+Direction west~
 ToRoom    3430
 #ENDEXIT
 
 #EXIT
-Direction east~
+Direction north~
 ToRoom    3436
 #ENDEXIT
 
 #EXIT
-Direction west~
+Direction east~
 ToRoom    3440
 #ENDEXIT
 
-Reset R 0 3435 4
 #ENDROOM
 
 #ROOM
@@ -1848,12 +1839,12 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction north~
+Direction south~
 ToRoom    3435
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction east~
 ToRoom    3441
 #ENDEXIT
 
@@ -1862,7 +1853,6 @@ Direction west~
 ToRoom    3431
 #ENDEXIT
 
-Reset R 0 3436 4
 #ENDROOM
 
 #ROOM
@@ -1944,8 +1934,14 @@ ToRoom    3441
 #ENDEXIT
 
 #EXIT
-Direction east~
+Direction west~
 ToRoom    3435
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    3449
+Flags     isdoor closed~
 #ENDEXIT
 
 #EXIT
@@ -1953,13 +1949,6 @@ Direction south~
 ToRoom    3445
 #ENDEXIT
 
-#EXIT
-Direction west~
-ToRoom    3449
-Flags     isdoor closed~
-#ENDEXIT
-
-Reset R 0 3440 4
 #ENDROOM
 
 #ROOM
@@ -1969,22 +1958,17 @@ Sector   inside~
 Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
-#EXIT
-Direction north~
-ToRoom    3446
-#ENDEXIT
 
 #EXIT
-Direction east~
+Direction south~
 ToRoom    3440
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction west~
 ToRoom    3436
 #ENDEXIT
 
-Reset R 0 3441 4
 Reset M 0 3400 8 3441
   Reset E 1 3421 15 16
 Reset M 0 3413 5 3441
@@ -1999,7 +1983,7 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction north~
+Direction east~
 ToRoom    3447
 #ENDEXIT
 
@@ -2008,7 +1992,6 @@ Direction south~
 ToRoom    3443
 #ENDEXIT
 
-Reset R 0 3442 4
 Reset M 0 3416 4 3442
 #ENDROOM
 
@@ -2020,16 +2003,15 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction north~
+Direction west~
 ToRoom    3444
 #ENDEXIT
 
 #EXIT
-Direction west~
+Direction north~
 ToRoom    3442
 #ENDEXIT
 
-Reset R 0 3443 4
 #ENDROOM
 
 #ROOM
@@ -2037,14 +2019,21 @@ Vnum     3444
 Name     The Lower Chambers and Tombs of the Undead~
 Sector   inside~
 Flags    dark indoors~
-Desc     The stench of death is heavy in these caverns.
+Desc     The stench of death is heavy in these caverns. You notice
+a secret passage...
 ~
 #EXIT
-Direction south~
+Direction west~
+ToRoom    3410
+Desc      Lead to somewhere...
+~
+#ENDEXIT
+
+#EXIT
+Direction east~
 ToRoom    3443
 #ENDEXIT
 
-Reset R 0 3444 4
 Reset M 0 3409 4 3444
 Reset M 0 3409 4 3444
 #ENDROOM
@@ -2057,16 +2046,15 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction east~
-ToRoom    3446
-#ENDEXIT
-
-#EXIT
-Direction west~
+Direction north~
 ToRoom    3440
 #ENDEXIT
 
-Reset R 0 3445 4
+#EXIT
+Direction south~
+ToRoom    3446
+#ENDEXIT
+
 #ENDROOM
 
 #ROOM
@@ -2078,20 +2066,14 @@ Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
 Direction north~
-ToRoom    3441
-#ENDEXIT
-
-#EXIT
-Direction east~
-ToRoom    3447
-#ENDEXIT
-
-#EXIT
-Direction west~
 ToRoom    3445
 #ENDEXIT
 
-Reset R 0 3446 4
+#EXIT
+Direction south~
+ToRoom    3447
+#ENDEXIT
+
 #ENDROOM
 
 #ROOM
@@ -2102,7 +2084,7 @@ Flags    dark~
 Desc     The stench of death is heavy in these caverns.
 ~
 #EXIT
-Direction north~
+Direction west~
 ToRoom    3442
 #ENDEXIT
 
@@ -2112,11 +2094,10 @@ ToRoom    3448
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction north~
 ToRoom    3446
 #ENDEXIT
 
-Reset R 0 3447 4
 Reset M 0 3402 8 3447
 #ENDROOM
 
@@ -2131,7 +2112,7 @@ of beasts and monsters terrorizing the countryside; vampires sucking the
 blood of beasts and humans alike.
 ~
 #EXIT
-Direction north~
+Direction west~
 ToRoom    3447
 #ENDEXIT
 
@@ -2159,16 +2140,16 @@ Direction east~
 ToRoom    3408
 Key       3411
 Keywords  door~
-Flags     isdoor pickproof~
+Flags     isdoor closed locked~
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction west~
 ToRoom    3440
 Flags     isdoor closed~
 #ENDEXIT
 
-Reset R 0 3449 4
+Reset D 0 3449 1 2
 Reset M 0 3410 1 3449
   Reset E 1 3414 10 16
   Reset E 1 3429 5 5
@@ -2236,8 +2217,8 @@ Desc      Too dark to tell.
 #ENDEXIT
 
 #EXIT
-Direction south~
-ToRoom    3450
+Direction west~
+ToRoom    3471
 Desc      Too dark to tell.
 ~
 #ENDEXIT
@@ -2252,7 +2233,7 @@ Flags    dark~
 Desc     Stone walls, musty air ... the earth seems to moan softly.
 ~
 #EXIT
-Direction north~
+Direction south~
 ToRoom    3461
 Desc      Too dark to tell.
 ~
@@ -2403,6 +2384,13 @@ Desc      Too dark to tell.
 ~
 #ENDEXIT
 
+#EXIT
+Direction east~
+ToRoom    3454
+Desc      Too dark to tell.
+~
+#ENDEXIT
+
 #ENDROOM
 
 #ROOM
@@ -2445,6 +2433,13 @@ Desc      Too dark to tell.
 #ENDEXIT
 
 #EXIT
+Direction west~
+ToRoom    3454
+Desc      Too dark to tell.
+~
+#ENDEXIT
+
+#EXIT
 Direction down~
 ToRoom    3475
 Key       3419
@@ -2477,7 +2472,7 @@ Desc      Too dark to tell.
 #ENDEXIT
 
 #EXIT
-Direction south~
+Direction north~
 ToRoom    3452
 Desc      Too dark to tell.
 ~
@@ -2757,6 +2752,13 @@ Desc     A secret passage!  You wonder where it may lead!
 #EXIT
 Direction north~
 ToRoom    3470
+Desc      Too dark to tell.
+~
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    3451
 Desc      Too dark to tell.
 ~
 #ENDEXIT
