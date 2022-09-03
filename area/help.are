@@ -10654,6 +10654,10 @@ POST - takes a note you're holding and posts it to the board you are at,
  so others may read it.
  example: 'note post' puts it on the board.
 
+NOREMOVE - set note [number] to non-removable. Remover must be at least
+ same or higher level than the note's author to remove the note from board.
+ example: 'note noremove 11' set note #11 as non-removable.
+
 REMOVE - erases note [number] from a note board. You must be at a note
  board and be the note's author or an immortal to use Remove.
  example: 'note remove 12' removes note #12, if you're its author.
