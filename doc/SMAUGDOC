@@ -682,7 +682,7 @@ The arguments that can be used with bset are as follows:
 
 *ovnum --  This is the board that you setup in the previous step.  Set this
 	to the objects vnum.
-	Example:	bset myboard.brd 1000
+	Example:	bset myboard.brd ovnum 1000
 
 *read --   This is the minimum level you have to be to read the board.
 	For example to set it to 51, so only immortals can read it you would

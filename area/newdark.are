@@ -2852,6 +2852,25 @@ mptransfer $n 2171
 #ENDOBJECT
 
 #OBJECT
+Vnum     21115
+Keywords quest board~
+Type     furniture~
+Short    the quest board~
+Long     The quest board hangs here.~
+Values   0 0 0 0 0 0
+Stats    1001 0 0 0 0
+#EXDESC
+ExDescKey    quest quests board~
+ExDesc       This is the quest board where player may complete a task or
+mission to gain a reward (Glory points). Player may need to present
+the quest items as the proof of quest completion to Immortals in order
+to receive Glory points.
+~
+#ENDEXDESC
+
+#ENDOBJECT
+
+#OBJECT
 Vnum     21133
 Keywords smoked rabbit~
 Type     food~
@@ -8808,7 +8827,7 @@ Reset O 0 21039 1 21172
 Vnum     21174
 Name     Public Notices~
 Sector   inside~
-Flags    nomob indoors safe silence nodrop nosummon~
+Flags    nomob indoors safe donation silence nodrop nosummon~
 Desc     Here the citizens of the city come to read and trade information about the
 events of their time.  A large board hangs on the far wall, serving to carry
 the word of the common people one to another, and people mill slowly by,
@@ -9784,7 +9803,7 @@ Reset M 0 21009 1 21275
 Vnum     21280
 Name     Entrance to the Academy~
 Sector   city~
-Flags    nomob nosummon~
+Flags    donation nomob nosummon~
 Desc     You stand at the entrance to the Darkhaven Academy.  A large flight of
 stone stairs lead down into the massive subterranean structure, which
 has the responsibility of training the young adventurers of the world.
@@ -9821,6 +9840,7 @@ endif
 ~
 #ENDPROG
 
+Reset O 0 21115 1 21280
 #ENDROOM
 
 #ROOM
