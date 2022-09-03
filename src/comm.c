@@ -2580,7 +2580,7 @@ void nanny_read_motd( DESCRIPTOR_DATA * d, const char *argument )
       ch->hit = UMAX( 1, ch->max_hit );
       ch->mana = UMAX( 1, ch->max_mana );
       ch->move = ch->max_move;
-      ch->gold = 0;
+      ch->gold = 5000;
       /*
        * Set player birthday to current mud day, -17 years - Samson 10-25-99
        */
