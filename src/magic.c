@@ -4652,7 +4652,10 @@ ch_ret spell_portal( int sn, int level, CHAR_DATA * ch, void *vo )
    else
       act( AT_MAGIC, skill->hit_room, ch, NULL, victim, TO_ROOM );
    if( !skill->hit_vict || skill->hit_vict[0] == '\0' )
+   {
+      send_to_char( "A shimmering portal forms in front of you!\r\n", victim );
       act( AT_MAGIC, "A shimmering portal forms in front of you!", victim, NULL, NULL, TO_ROOM );
+   }
    else
       act( AT_MAGIC, skill->hit_vict, victim, NULL, victim, TO_ROOM );
    portalObj = obj_to_room( portalObj, ch->in_room );
