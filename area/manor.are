@@ -1330,26 +1330,21 @@ say However, I will pardon you this time.
 mea 0.$n The Judge points his finger at you...
 say Begone, you vile murderer!
 mea 0.$n By the Judge's mercy, you have been transferred to...
-if ispkill($n)
-  mea 0.$n Gravoc's waiting presence.
-  mptrans 0.$n 3009
+if rand(35)
+  mea 0.$n $n Hawk Street & Law Avenue
+  mptrans 0.$n 21016
 else
-  if rand(35)
-    mea 0.$n $n Hawk Street & Law Avenue
-    mptrans 0.$n 21016
+  if rand(45)
+    mea 0.$n Dwarven Day Care
+    mptrans 0.$n 6601
   else
-    if rand(45)
-      mea 0.$n Dwarven Day Care
-      mptrans 0.$n 6601
+    if rand(50)
+      mea 0.$n The Miden'nir
+      mptrans 0.$n 3504
     else
-      if rand(50)
-        mea 0.$n The Miden'nir
-        mptrans 0.$n 3504
-      else
-        mea 0.$n Thoth's Rune
-        mptrans 0.$n 21001
-      endif
-    endif 
+      mea 0.$n Thoth's Rune
+      mptrans 0.$n 21001
+    endif
   endif
 endif
 ~

@@ -646,7 +646,7 @@ Comlist   if ispc($n)
  if ispkill($n)
    mea 0.$n _red A shiver rushes through your body as you return to the ruins.
    mer 0.$n _red A chill washes over you as $n fades into nothingness...
-   mptrans 0.$n 3053
+   mptrans 0.$n 21016
    mpat 0.$n mpforce 0.$n look
  else
    mea 0.$n _red The Umbrageous Ruins is a place for murderers and thieves!
@@ -750,7 +750,7 @@ Comlist   if ispc($n)
  if ispkill($n)
    mea 0.$n _red A shiver rushes through your body as you return to the ruins.
    mer 0.$n _red A chill washes over you as $n fades into nothingness...
-   mptrans 0.$n 3030
+   mptrans 0.$n 21016
    mpat 0.$n mpforce 0.$n look
  else
    mea 0.$n _red The Umbrageous Ruins is a place for murderers and thieves!

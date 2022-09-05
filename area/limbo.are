@@ -1240,12 +1240,8 @@ Progtype  push_prog~
 Arglist   100~
 Comlist   mpechoat $n The instant your hand touches the orb, your surroundings change.
 mpechoat $n The sights and busy sounds of Darkhaven surround you...
-if ispkill($n)
-  mptrans 0.$n 3009
-else
-  mptrans $n 21001
-  mpat 21001 mer 0.$n $n materializes in the center of the great rune.
-endif
+mptrans $n 21001
+mpat 21001 mer 0.$n $n materializes in the center of the great rune.
 mpat 99 pull orb
 ~
 #ENDPROG
