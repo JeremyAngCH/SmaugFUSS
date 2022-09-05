@@ -17,7 +17,7 @@ Long       The Grand Knight is standing here, waiting for someone to help.
 ~
 Desc       The Knight is standing here, smiling at you. He is dressed all in
 white, blue and silver. He looks VERY strong, as he stands here, ready to
-help the innocent.
+help the innocent. Say 'I am lost' to him if you are lost.
 ~
 Race       human~
 Class      warrior~
@@ -38,6 +38,19 @@ Speaking   common~
 Bodyparts  head arms legs heart guts hands feet ear eye~
 Attacks    kick trip bash weaken~
 Defenses   parry dodge disarm~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   p I am lost~
+Comlist   if isnpc($n)
+else
+  mpechoat $n The ground shifts beneath you! You fall from the top.
+  mpechoat $n You land at the bottom.
+  mpechoaround $n $n suddenly falls to the bottom!
+  mptransfer 0.$n 21291
+endif
+~
+#ENDPROG
+
 #ENDMOBILE
 
 #OBJECT
@@ -102,7 +115,7 @@ ExDesc       It is a small, simple brass key with no inscriptions or marks of an
 Vnum     7900
 Name     Outside Redferne's residence~
 Sector   inside~
-Flags    nomob private nosummon noastral~
+Flags    nomob nosummon noastral~
 Desc     A huge cloud forms the plateau on which you are now standing. The wind here
 is absolutely quiet and the sun is shining warmly upon you. From under the
 cloud you can hear the faint sounds of Darkhaven. Right before you to the
