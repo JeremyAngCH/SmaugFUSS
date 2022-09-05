@@ -3185,6 +3185,26 @@ Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
+#OBJECT
+Vnum     21436
+Keywords grate~
+Type     container~
+Short    a grate under the bridge~
+Long     A grate constructed into the underside of the northern bridge-support.~
+Flags    glow~
+Values   10000 0 0 0 0 0
+Stats    10000 0 0 0 0
+#EXDESC
+ExDescKey    underside grate bridge~
+ExDesc       Constructed into the underside of the northern bridge-support, it looks
+quite old but quite sturdy.  Looking closer, you might be able to fit your hand
+into it...
+~
+#ENDEXDESC
+
+#ENDOBJECT
+
+
 #ROOM
 Vnum     21000
 Name     Darkhaven Square~
@@ -10227,10 +10247,10 @@ Desc      The river passes under the crumbling bridge to the west.
 Vnum     21303
 Name     Under the Crumbling Bridge~
 Sector   water_noswim~
-Flags    nomob nosummon~
+Flags    nomob donation nosummon~
 Desc     You carefully wade through the waters under this low bridge, praying that
 it does not crash down upon your head.  The river flows into the ocean to
-the west, and you spy a grate in the northern underside of the bridge.
+the west, and you spy something in the northern underside of the bridge.
 ~
 #EXIT
 Direction east~
@@ -10238,21 +10258,7 @@ ToRoom    21302
 Desc      The river continues to the east.
 ~
 #ENDEXIT
-
-#EXDESC
-ExDescKey    grate~
-ExDesc       Constructed into the underside of the northern bridge-support, it looks
-quite old but quite sturdy.  Looking closer, you notice it has a set of
-swing-hinges and a bolted fastener; you may be able to open it.
-~
-#ENDEXDESC
-
-#MUDPROG
-Progtype  leave_prog~
-Arglist   100~
-Comlist   close grate
-~
-#ENDPROG
+Reset O 0 21436 1 21303
 
 #ENDROOM
 
