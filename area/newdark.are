@@ -10887,7 +10887,7 @@ Reset M 0 21071 8 21333
 Vnum     21335
 Name     The Western Hall~
 Sector   inside~
-Flags    indoors safe nosummon~
+Flags    indoors safe nomob nosummon~
 Desc     You enter a large building filled with people.  The building is usually
 busy with functions, almost always filled to the maximum.  The large main
 hall boasts a maid who comes around serving drinks and meals to the people
